@@ -1,0 +1,10 @@
+10. """Write a Python program to change a given string to a new string where the first and last chars have been exchanged"""
+
+user_string = input('Enter the string : ')
+first_char = user_string[0]
+last_char = user_string[-1]
+end = len(user_string) - 1
+new_string = last_char + user_string[1:end] + first_char
+
+print('The new string is ', new_string)
+

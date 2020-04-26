@@ -1,0 +1,98 @@
+11. """Write a Python program to remove the characters which have odd index values of a given string. """
+
+user_string = input('Enter the string :')
+new_string = ''
+for i in range(0, len(user_string)):
+  if (i%2 == 0):
+    new_string = new_string + user_string[i]
+
+print('The new string is ', new_string)
+
+12. """Write a Python program to count the occurrences of each word in a given sentence."""
+
+user_string = input('Enter the sentence : ')
+word_to_be_found = input('Enter the word to be found : ')
+
+word_count = user_string.count(word_to_be_found)
+print(word_count)
+
+13. """Write a Python script that takes input from the user and displays that input back in upper and lower cases."""
+
+user_string = input('Enter the string : ')
+
+string_in_upper = user_string.upper()
+string_in_lower = user_string.lower()
+
+print(string_in_upper, string_in_lower)
+
+14. """Write a Python program that accepts a comma separated sequence of words as input and prints the unique words in sorted form (alphanumerically). """
+
+user_string = input('Enter the sentence : ')
+
+temp_string = user_string.split(',')
+final_string = sorted(list(set(temp_string)))
+
+for i in final_string:
+  print(i)
+
+15. """Write a Python function to create the HTML string with tags around the word(s)."""
+
+def add_html(tag, sentence):
+  tag_to_add = '<' + tag + '>'
+  return tag_to_add + sentence + tag_to_add
+
+word = input('Enter the sentence : ')
+html_tag = input('Enter the HTML tag to be used :')
+
+result = add_html(html_tag, word)
+print(result)
+
+16. """Write a Python function to insert a string in the middle of a string."""
+
+def insert_middle(org_str, ins_str):
+  """This is a function used to insert the ins_str string
+  into the middle of org_str string"""
+  
+  middle_pos = len(org_str)//2
+
+  first_half_str = org_str[:middle_pos]
+  second_half_str = org_str[middle_pos:]
+  
+  return first_half_str + ins_str + second_half_str
+
+original_string = input('Enter the original string : ')
+string_to_be_inserted = input('Enter the string to be inserted : ')
+
+new_string = insert_middle(original_string, string_to_be_inserted)
+
+print('The new string is ', new_string)
+
+17. """Write a Python function to get a string made of 4 copies of the last two characters of a specified string (length must be at least 2)."""
+
+def func_duplicate(specified_string):
+  """This function takes the specified_string as argument. It return a string made of 4 copies of the last two characters of its argument"""
+  if len(specified_string)<2:
+    return('Error - length of the specified string must be atleast 2')
+  else:
+    last_two_chars = specified_string[-2] + specified_string[-1]
+    new_string =''
+    for i in range(0,4):
+      new_string = new_string + last_two_chars
+    return new_string
+
+user_string = input('Enter the string :')
+print(func_duplicate(user_string))
+
+18. """Write a Python function to get a string made of its first three characters of a specified string. If the length of the string is less than 3 then return the original string."""
+
+def func_first_three_chars(specified_string):
+  """This function is used to get a string made of its first three chars of its argument"""
+  if len(specified_string)<3:
+    return 'Error - string length must be atleast 3'
+  else:
+    return specified_string[:3]
+
+user_string = input('Enter the string :')
+print(func_first_three_chars(user_string))
+
+19. 

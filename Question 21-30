@@ -1,0 +1,47 @@
+21. """Write a Python function to convert a given string to all uppercase if it contains at least 2 uppercase characters in the first 4 characters"""
+
+def func_convert(string_arg):
+  """This function is used to convert string_arg to all uppercase if it contains at least 2 uppercase in the first 4 characters"""
+  if(len(string_arg)<4):
+    return string_arg
+  else:
+    flag=0
+    for i in range(0,4):
+      if string_arg[i].isupper():
+        flag+=1
+    if flag>=2:
+      return string_arg.upper()
+    else:
+      return string_arg
+
+user_string = input('Enter the string : ')
+print(func_convert(user_string))
+
+22. 
+
+23. """Write a Python program to remove a newline in Python"""
+import sys
+
+user_string = sys.stdin.readlines()
+temp_list = ''
+for i in user_string:
+  t_list = i.split("\n")
+  temp_list = temp_list + t_list[0]
+
+print(temp_list)
+print("\n")
+
+24. """Write a Python program to check whether a string starts with specified characters"""
+
+user_string = input('Enter the string : ')
+chars_set = input('Enter the specified characters :')
+
+length = len(chars_set)
+temp_string = user_string[:length]
+
+if (temp_string == chars_set):
+  print("Yes the given string starts with the specified characters", "\n")
+else:
+  print("No the given string starts with the specified characters", "\n")
+  
+ 25.  

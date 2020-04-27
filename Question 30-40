@@ -1,0 +1,15 @@
+31. """Write a Python program to print the following floating numbers upto 2 decimal places with a sign."""
+
+user_number = input('Enter the number : ')
+
+round_number = round(float(user_number), 2)
+print(round_number)
+
+32. """Write a Python program to print the following floating numbers with no decimal places."""
+
+user_number = input('Enter the number : ')
+
+round_number = round(float(user_number))
+print(round_number)
+
+33. 

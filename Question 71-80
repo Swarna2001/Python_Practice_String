@@ -1,0 +1,157 @@
+""" 71. Write a python program to move all the spaces to the front of a given string in single traversal """
+user_string = input('Enter the string : ')
+list_of_elements = user_string.split(' ')
+spaces_count = 0
+for i in user_string:
+    if i == ' ':
+        spaces_count += 1
+final_string = ''
+for i in range(0, spaces_count):
+    final_string = final_string + ' '
+for i in list_of_elements:
+    final_string = final_string + i
+print('THe final string is ', final_string)
+
+""" 72. Write a python program to remove all consecutive duplicates from the given string """
+user_string = input('Enter the string : ')
+distinct_elements = set(user_string)
+temp_dict = {}
+final_string = ''
+for i in distinct_elements:
+    position = user_string.find(i)
+    temp_dict[position] = i
+
+final_dict = sorted(temp_dict.items())
+for i in final_dict:
+    final_string = final_string + i[1]
+
+print('The string after removing the duplicates is ', final_string)
+
+""" 73. Write a python program to count the number of uppercase, lowercase, special character and numeric 
+values in a given string """
+
+user_string = input('Enter the string : ')
+upper_count = lower_count = special_count = numeric_count = 0
+for i in user_string:
+    if i.isupper():
+        upper_count += 1
+    elif i.islower():
+        lower_count += 1
+    elif i.isdigit():
+        numeric_count += 1
+    else:
+        special_count += 1
+print('The number of uppercase characters are ', upper_count)
+print('The number of lowercase characters are ', lower_count)
+print('The number of numeric characters are ', numeric_count)
+print('The number of special characters are ', special_count)
+
+"""74. Write a Python program to find the minimum window in a given string which will contain all the characters of 
+another given string """
+
+# Here string 1 denotes the original string where the window size is to be found
+# Here string2 denotes the string whose characters are to be found in another
+string_1 = input('Enter the string 1 : ')
+string_2 = input('Enter the string 2 : ')
+
+set_string = set(string_2) # finding out the distinct alphabets present in the given string2
+
+temp_list = string_1.split(' ') # this is a temporary list to store the distinct words that make up the string1
+
+# this dictionary is used to store the key - maximum number of alphabets that match of a given word of string1
+count_dict = {}
+for i in temp_list:
+    count = 0
+    for j in set_string:
+        if j in i:
+            count += 1
+    count_dict[count] = len(i)
+
+temp_dict = sorted(count_dict.items(), reverse=True)
+
+window_size = 0
+next_ptr = 0
+while window_size < len(set_string) -1:
+    window_size = temp_dict[next_ptr][0] + window_size
+    next_ptr += 1
+
+print('The smallest window size is ', window_size)
+
+""" 75. Write a python program to find the smallest window that contains all characters of a given string """
+user_string = input('Enter the string : ') # getting the string from the user
+set_string = set(user_string) # finding out the distinct alphabets present in the given string
+
+temp_list = user_string.split(' ') # this is a temporary list to store the distinct words that make up the string
+
+count_dict = {} # this dictionary is used to store the key - maximum number of alphabets that match of a given word
+for i in temp_list:
+    count = 0
+    for j in set_string:
+        if j in i:
+            count += 1
+    count_dict[count] = len(i)
+
+temp_dict = sorted(count_dict.items(), reverse=True)
+
+window_size = 0
+next_ptr = 0
+while window_size < len(set_string) -1:
+    window_size = temp_dict[next_ptr][0] + window_size
+    next_ptr += 1
+
+print('The smallest window size is ', window_size)
+
+""" 76. Write a python program to count number of substrings from a given string of lowercase alphabets with exactly k
+distinct(given) characters"""
+
+input_string = input('Enter the string : ')
+k_value = int(input('Enter the value of k :'))
+if not input_string.islower():
+    print('The given string is not fully lower case')
+else:
+    sub_strings = input_string.split(' ')
+    count = 0
+    for i in sub_strings:
+        if len(i)==k_value:
+            temp_set = set(i)
+            if len(temp_set)==k_value:
+                count += 1
+    print(count)
+    
+""" 77. Write a Python program to count the number of non-empty substrings of a given string"""
+print("Note 1 :  Specify the empty string using '' ")
+print("Note 2 : Use space as the delimiter to separate the substrings")
+
+string_input = input('Enter the string : ')
+non_empty_count = 0
+string_list = string_input.split(' ')
+
+for i in string_list:
+    if i!="''":
+        non_empty_count += 1
+print(non_empty_count)
+
+""" 78. Write a Python program to count characters at same position in a given string as in English alphabet"""
+
+""" 79. Write a Python program to find the smallest word and largest word in a given string"""
+user_string = input('Enter the string : ')
+list_of_strings = user_string.split(' ')
+dict_of_strings = {}
+for i in list_of_strings:
+    l = len(i)
+    dict_of_strings[l] = i
+temp_list_1 = dict_of_strings.items()
+temp_list_2 = sorted(temp_list_1)
+print('The smallest word is ', temp_list_2[0][1])
+print('The largest word is ', temp_list_2[-1][1])
+
+
+
+
+
+
+   
+
+
+
+

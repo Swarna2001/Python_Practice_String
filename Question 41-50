@@ -1,0 +1,34 @@
+""" 41. Write a Python program to strip a set of characters from a string. """
+given_string = input('Enter the string : ')
+choice = 'y'
+strip_chars = list()
+
+while choice == 'y':
+    character = input('Enter the character to be stripped : ')
+    strip_chars.append(character)
+    choice = input('Do you want to add more ? (y/n) ')
+
+temp_list = given_string
+final_string = ''
+for i in temp_list:
+    if not(i in strip_chars):
+        final_string = final_string + i
+
+print('The final string is ', final_string)
+
+""" 42. Write a Python program to count repeated characters in a string. """
+given_string = input('Enter the string : ')
+count_dict = {}
+for i in given_string:
+    count_dict[i] = given_string.count(i)
+
+for i in count_dict.items():
+    print(i[0], i[1])
+
+""" 43. Write a Python program to print the square and cube symbol in the area of a rectangle and volume 
+of a cylinder. """
+
+""" 44. Write a Python program to print the index of the character in a string."""
+given_string = input('Enter the string : ')
+for i in given_string:
+    print(i, given_string.index(i))

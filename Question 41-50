@@ -32,3 +32,76 @@ of a cylinder. """
 given_string = input('Enter the string : ')
 for i in given_string:
     print(i, given_string.index(i))
+
+"""45. Write a Python program to check if a string contains all letters of the alphabet."""
+
+def func_check(string_arg):
+    distinct_chars = list(set(string_arg))
+    if len(distinct_chars) < 26:
+        return 'The answer is NO '
+    else:
+        for i in distinct_chars:
+            if not i.isalpha():
+                return 'The answer is NO'
+        return 'The answer is YES'
+
+
+given_string = input('Enter the string : ')
+print(func_check(given_string))
+
+""" 46. Write a Python program to convert a string in a list"""
+given_string = input('Enter the string :')
+string_list = list()
+for i in given_string:
+    string_list.append(i)
+print(string_list)
+
+""" 47. Write a Python program to lowercase first n characters in a string. """
+given_string = input('Enter the string : ')
+n = int(input('Enter the value of n : '))
+
+final_string = ''
+if len(given_string) <= n:
+    for i in range(0, len(given_string)):
+        if given_string[i].isalpha():
+            final_string = final_string + given_string[i].lower()
+        else:
+            final_string = final_string + given_string[i]
+else:
+    for i in range(0, n):
+        final_string = final_string + given_string[i].lower()
+    for i in range(n, len(given_string)):
+        final_string = final_string + given_string[i]
+print(final_string)
+
+""" 48. Write a Python program to swap comma and dot in a string"""
+given_string = input('Enter the string : ')
+final_string = ''
+for i in given_string:
+    if i == '.':
+        final_string = final_string + ','
+    elif i == ',':
+        final_string = final_string + '.'
+    else:
+        final_string = final_string + i
+print(final_string)
+
+""" 49. Write a Python program to count and display the vowels of a given text."""
+vowels_dict = {'A': 0, 'E': 0, 'I': 0, 'O': 0, 'U': 0, 'a': 0, 'e': 0, 'i': 0, 'o': 0,'u': 0}
+count_vowels = 0
+given_string = input('Enter the string : ')
+for i in given_string:
+    if i in vowels_dict.keys():
+        vowels_dict[i] += 1
+        count_vowels += 1
+print('The vowels that are present are ', end='')
+for i in vowels_dict.items():
+    if i[1] != 0:
+        print(i[0], end='')
+print('\n')
+print('The count of such vowels are ', count_vowels)
+
+""" 50. Write a Python program to split a string on the last occurrence of the delimiter """
+given_string = input('Enter the string : ')
+delimiter_string = input('Enter the delimiter : ')
+print(given_string.rsplit(delimiter_string, maxsplit=1))

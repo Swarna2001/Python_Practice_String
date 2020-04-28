@@ -1,0 +1,79 @@
+80. """Write a python program to count the number of substrings with same first and last characters of a given string"""
+def func_count(string_arg, first_char, last_char):
+    count = 0
+    if not(first_char in string_arg and last_char in string_arg):
+        return count
+    else:
+        first_char_pos = string_arg.rfind(first_char)
+        last_char_pos = string_arg.rfind(last_char)
+        temp_list = list(string_arg)
+        if first_char_pos<last_char_pos:
+            count = count + 1
+            del temp_list[last_char_pos]
+            del temp_list[first_char_pos]
+        else:
+            del temp_list[first_char_pos]
+            del temp_list[last_char_pos]
+        string_arg = ''
+        for i in temp_list:
+            string_arg = string_arg + i
+        print(string_arg)
+        count = count + func_count(string_arg, first_char, last_char)
+        return count
+
+
+original_string = input('Enter the original string : ')
+sub_string = input('Enter the substring : ')
+count_answer = func_count(original_string, sub_string[0], sub_string[-1])
+print(count_answer)
+
+
+81. """Write a Python Program to find the index of a given string at which a given substring starts. If the substring
+is not found in the given string return 'Not Found'"""
+given_string = input('Enter the string : ')
+sub_string = input('Enter the sub-string : ')
+if sub_string in given_string:
+    print(given_string.find(sub_string))
+else:
+    print('Not Found')
+
+
+82. """Write a Python program to wrap a given string into a paragraph of given width """
+
+def func_wrap(string_arg, width_arg):
+    """This is a function that is used to print the string_arg of width_arg and return the remaining"""
+
+    if len(string_arg)<=width_arg:
+        print(string_arg)
+        return ''
+
+    print(string_arg[0:width_arg])
+    return string_arg[width_arg:]
+
+par_width = int(input('Enter the width of the paragraph : '))
+line = input('Enter the string : ')
+
+rem_string = line
+while not(rem_string == ''):
+    rem_string = func_wrap(rem_string, par_width)
+    
+83. """Write a program tp print the values of the decimal, binary, octal and hexadecimal(capitalized) versions
+of a given number in a single line of input"""
+
+number_input = int(input('Enter the number : '))
+print(float(number_input), bin(number_input), oct(number_input), str(hex(number_input)).upper())
+
+
+84. """ Write a Python Program to swap cases of a given string """
+
+input_string = input('Enter the string  : ')
+final_string = ''
+for i in input_string:
+    if i.isupper():
+        final_string = final_string + i.lower()
+    elif i.islower():
+        final_string = final_string + i.upper()
+    else:
+        final_string = final_string + i
+
+print(final_string)

@@ -1,0 +1,13 @@
+""" 51. Write a Python program to find the first non-repeating character in given string. """
+given_string = input('Enter the string : ')
+
+flag = False
+for i in given_string:
+    count_i = given_string.count(i)
+    if count_i == 1:
+        flag = True
+        print(i)
+        break
+if not flag:
+    print('No such character exists')
+
